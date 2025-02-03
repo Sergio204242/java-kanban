@@ -2,13 +2,9 @@ import java.util.ArrayList;
 
 public class Epic extends Task {
     private final ArrayList<Subtask> subtasks = new ArrayList<>();
-    protected boolean statusNew = true;
-    protected boolean statusDone = true;
-    private Status status;
 
-    public Epic(String name, String description) {
-        super(name, description);
-        status = Status.NEW;
+    public Epic(String name, String description, int id) {
+        super(name, description, id, Status.NEW);
     }
 
     public void addSubTask(Subtask subtask) {
@@ -16,16 +12,7 @@ public class Epic extends Task {
     }
 
     public ArrayList<Subtask> getSubtasks() {
-        return subtasks;
-    }
-
-    public final void setStatus(Status status) {
-        this.status = status;
-    }
-
-    @Override
-    public Status getStatus() {
-        return status;
+        return new ArrayList<>(subtasks);
     }
 
     @Override
@@ -39,11 +26,11 @@ public class Epic extends Task {
                 '}';
     }
 
-    public void deleteSubtask(int id){
-        subtasks.remove(id);
+    public void deleteSubtask(Subtask subtask) {
+        subtasks.remove(subtask);
     }
 
-    public void clearSubtasks(){
+    public void clearSubtasks() {
         subtasks.clear();
     }
 }
