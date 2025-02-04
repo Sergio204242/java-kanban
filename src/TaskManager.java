@@ -111,7 +111,10 @@ public class TaskManager {
     }
 
     public ArrayList<Subtask> getSubtasksByEpic(int id) {
-        return epics.get(id).getSubtasks();
+        if (epics.get(id) != null) {
+            return epics.get(id).getSubtasks();
+        }
+        return new ArrayList<>();
     }
 
     public void removeTaskById(int id) {
@@ -119,15 +122,19 @@ public class TaskManager {
     }
 
     public void removeEpicById(int id) {
-        for (Subtask subtask : epics.get(id).getSubtasks()) {
-            subtasks.remove(subtask.getId());
+        if (epics.get(id) != null) {
+            for (Subtask subtask : epics.get(id).getSubtasks()) {
+                subtasks.remove(subtask.getId());
+            }
+            epics.remove(id);
         }
-        epics.remove(id);
     }
 
     public void removeSubtaskById(int id) {
-        epics.get(subtasks.get(id).getIdOfEpic()).deleteSubtask(subtasks.get(id));
-        changeStatusOfEpic(epics.get(subtasks.get(id).getIdOfEpic()));
-        subtasks.remove(id);
+        if (subtasks.get(id) != null) {
+            epics.get(subtasks.get(id).getIdOfEpic()).deleteSubtask(subtasks.get(id));
+            changeStatusOfEpic(epics.get(subtasks.get(id).getIdOfEpic()));
+            subtasks.remove(id);
+        }
     }
 }
