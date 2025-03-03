@@ -1,3 +1,5 @@
+import java.util.Objects;
+
 public class Subtask extends Task {
     private final int idOfEpic;
 
@@ -19,5 +21,18 @@ public class Subtask extends Task {
                 ", status=" + getStatus() +
                 ", id=" + getId() +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Subtask subtask = (Subtask) o;
+        return Objects.equals(id, subtask.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
     }
 }
