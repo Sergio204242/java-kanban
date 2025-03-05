@@ -1,6 +1,6 @@
 import org.junit.jupiter.api.Test;
 
-import java.util.ArrayList;
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
@@ -17,7 +17,7 @@ class InMemoryTaskManagerTest {
         assertNotNull(savedTask, "Задача не найдена.");
         assertEquals(task, savedTask, "Задачи не совпадают.");
 
-        ArrayList<Task> tasks = inMemoryTaskManager.getTasks();
+        List<Task> tasks = inMemoryTaskManager.getTasks();
 
         assertNotNull(tasks, "Задачи не возвращаются.");
         assertEquals(1, tasks.size(), "Неверное количество задач.");
@@ -33,7 +33,7 @@ class InMemoryTaskManagerTest {
         assertNotNull(savedEpic, "Задача не найдена");
         assertEquals(epic, savedEpic, "Задачи не совпадают");
 
-        ArrayList<Epic> epics = inMemoryTaskManager.getEpics();
+        List<Epic> epics = inMemoryTaskManager.getEpics();
 
         assertNotNull(epics, "Задачи не возвращаются.");
         assertEquals(1, epics.size(), "Неверное количество задач.");
@@ -51,7 +51,7 @@ class InMemoryTaskManagerTest {
         assertNotNull(savedSubtask, "Задача не найдена");
         assertEquals(subtask, savedSubtask, "Задачи не совпадают");
 
-        ArrayList<Subtask> subtasks = inMemoryTaskManager.getSubtasks();
+        List<Subtask> subtasks = inMemoryTaskManager.getSubtasks();
 
         assertNotNull(subtasks, "Задачи не возвращаются.");
         assertEquals(1, subtasks.size(), "Неверное количество задач.");
