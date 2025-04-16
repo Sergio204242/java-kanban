@@ -1,13 +1,7 @@
-package manager;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
-import tasks.Status;
-import tasks.Subtask;
-import tasks.Task;
-import tasks.Epic;
 
 public class InMemoryTaskManager implements TaskManager {
     private final Map<Integer, Task> tasks = new HashMap<>();
@@ -148,7 +142,6 @@ public class InMemoryTaskManager implements TaskManager {
     @Override
     public void removeTaskById(int id) {
         tasks.remove(id);
-        historyManager.remove(id);
     }
 
     @Override
@@ -159,7 +152,6 @@ public class InMemoryTaskManager implements TaskManager {
             }
             epics.remove(id);
         }
-        historyManager.remove(id);
     }
 
     @Override
@@ -169,7 +161,6 @@ public class InMemoryTaskManager implements TaskManager {
             changeStatusOfEpic(epics.get(subtasks.get(id).getIdOfEpic()));
             subtasks.remove(id);
         }
-        historyManager.remove(id);
     }
 
     @Override
