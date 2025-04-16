@@ -1,13 +1,13 @@
-package manager;
+package Manager;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import tasks.Status;
-import tasks.Subtask;
-import tasks.Task;
-import tasks.Epic;
+import Tasks.Status;
+import Tasks.Subtask;
+import Tasks.Task;
+import Tasks.Epic;
 
 public class InMemoryTaskManager implements TaskManager {
     private final Map<Integer, Task> tasks = new HashMap<>();
