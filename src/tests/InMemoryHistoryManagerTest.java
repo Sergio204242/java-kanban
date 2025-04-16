@@ -1,9 +1,9 @@
-package Test;
+package tests;
 
-import Manager.HistoryManager;
-import Manager.InMemoryHistoryManager;
-import Tasks.Status;
-import Tasks.Task;
+import manager.HistoryManager;
+import manager.InMemoryHistoryManager;
+import tasks.Status;
+import tasks.Task;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
