@@ -1,4 +1,4 @@
-package tests;
+package test;
 
 import manager.InMemoryTaskManager;
 import manager.TaskManager;
@@ -29,7 +29,7 @@ class InMemoryTaskManagerTest {
 
         assertNotNull(tasks, "Задачи не возвращаются.");
         assertEquals(1, tasks.size(), "Неверное количество задач.");
-        assertEquals(task, tasks.get(0), "Задачи не совпадают.");
+        assertEquals(task, tasks.getFirst(), "Задачи не совпадают.");
     }
 
     @Test
@@ -45,7 +45,7 @@ class InMemoryTaskManagerTest {
 
         assertNotNull(epics, "Задачи не возвращаются.");
         assertEquals(1, epics.size(), "Неверное количество задач.");
-        assertEquals(epic, epics.get(0), "Задачи не совпадают.");
+        assertEquals(epic, epics.getFirst(), "Задачи не совпадают.");
     }
 
     @Test
@@ -63,6 +63,6 @@ class InMemoryTaskManagerTest {
 
         assertNotNull(subtasks, "Задачи не возвращаются.");
         assertEquals(1, subtasks.size(), "Неверное количество задач.");
-        assertEquals(subtask, subtasks.get(0), "Задачи не совпадают.");
+        assertEquals(subtask, subtasks.getFirst(), "Задачи не совпадают.");
     }
 }

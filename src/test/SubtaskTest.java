@@ -1,4 +1,4 @@
-package tests;
+package test;
 
 import manager.InMemoryTaskManager;
 import manager.TaskManager;
@@ -14,7 +14,7 @@ class SubtaskTest {
     public void compareSubtasks() {
         Subtask subtask = new Subtask("gew", "ojog", 5, Status.NEW, 1);
         Subtask subtask1 = new Subtask("gew", "ojog", 5, Status.NEW, 1);
-        assertTrue(subtask.equals(subtask1));
+        assertEquals(subtask, subtask1);
     }
 
     @Test

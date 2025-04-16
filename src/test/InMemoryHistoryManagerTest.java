@@ -1,10 +1,10 @@
-package tests;
+package test;
 
 import manager.HistoryManager;
 import manager.InMemoryHistoryManager;
+import org.junit.jupiter.api.Test;
 import tasks.Status;
 import tasks.Task;
-import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
