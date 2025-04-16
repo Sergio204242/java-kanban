@@ -1,7 +1,7 @@
-import Manager.InMemoryTaskManager;
-import Manager.TaskManager;
-import Tasks.Status;
-import Tasks.Task;
+import manager.InMemoryTaskManager;
+import manager.TaskManager;
+import tasks.Status;
+import tasks.Task;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
