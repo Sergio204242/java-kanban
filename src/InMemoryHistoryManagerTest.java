@@ -10,6 +10,27 @@ class InMemoryHistoryManagerTest {
         historyManager.add(task);
         task.setStatus(Status.DONE);
         historyManager.add(task);
-        assertEquals(2, historyManager.getHistory().size(), "Предыдущая версия не сохранилась");
+        assertEquals(1, historyManager.getHistory().size(), "Предыдущая версия не сохранилась");
+    }
+
+    @Test
+    public void testAddTask() {
+        InMemoryHistoryManager historyManager = new InMemoryHistoryManager();
+        Task task = new Task("fw", "eg", 1, Status.NEW);
+        Task task1 = new Task("ge", "hro", 2, Status.NEW);
+        historyManager.add(task);
+        historyManager.add(task);
+        assertEquals(1, historyManager.getHistory().size());
+        historyManager.add(task1);
+        assertEquals(2, historyManager.getHistory().size());
+    }
+
+    @Test
+    public void testRemoveTask() {
+        InMemoryHistoryManager historyManager = new InMemoryHistoryManager();
+        Task task = new Task("fw", "eg", 1, Status.NEW);
+        historyManager.add(task);
+        historyManager.remove(1);
+        assertEquals(0, historyManager.getHistory().size());
     }
 }
