@@ -1,5 +1,11 @@
 package Tests;
 
+import Manager.InMemoryTaskManager;
+import Manager.TaskManager;
+import Tasks.Epic;
+import Tasks.Status;
+import Tasks.Subtask;
+import Tasks.Task;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;

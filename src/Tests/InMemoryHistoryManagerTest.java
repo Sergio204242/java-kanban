@@ -1,5 +1,9 @@
 package Tests;
 
+import Manager.HistoryManager;
+import Manager.InMemoryHistoryManager;
+import Tasks.Status;
+import Tasks.Task;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;

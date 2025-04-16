@@ -1,5 +1,7 @@
 package Manager;
 
+import Tasks.Task;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -35,9 +37,9 @@ public class InMemoryHistoryManager implements HistoryManager {
 
     @Override
     public void add(Task task) {
-        remove(task.id);
+        remove(task.getId());
         linkLast(task);
-        historyMap.put(task.id, tail);
+        historyMap.put(task.getId(), tail);
     }
 
     @Override
