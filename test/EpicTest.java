@@ -1,3 +1,7 @@
+import manager.InMemoryTaskManager;
+import manager.TaskManager;
+import org.junit.jupiter.api.Assertions;
+import tasks.Epic;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -7,7 +11,7 @@ class EpicTest {
     public void compareEpics() {
         Epic epic = new Epic("fs", "34hj", 2);
         Epic epic1 = new Epic("joj", "0i[", 2);
-        assertTrue(epic.equals(epic1));
+        Assertions.assertEquals(epic, epic1);
     }
 
     @Test

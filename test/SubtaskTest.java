@@ -1,3 +1,8 @@
+import manager.InMemoryTaskManager;
+import manager.TaskManager;
+import tasks.Epic;
+import tasks.Status;
+import tasks.Subtask;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -7,7 +12,7 @@ class SubtaskTest {
     public void compareSubtasks() {
         Subtask subtask = new Subtask("gew", "ojog", 5, Status.NEW, 1);
         Subtask subtask1 = new Subtask("gew", "ojog", 5, Status.NEW, 1);
-        assertTrue(subtask.equals(subtask1));
+        assertEquals(subtask, subtask1);
     }
 
     @Test
