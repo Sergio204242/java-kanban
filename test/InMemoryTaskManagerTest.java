@@ -1,4 +1,10 @@
+import manager.InMemoryTaskManager;
+import manager.TaskManager;
 import org.junit.jupiter.api.Test;
+import tasks.Epic;
+import tasks.Status;
+import tasks.Subtask;
+import tasks.Task;
 
 import java.util.List;
 
@@ -10,7 +16,7 @@ class InMemoryTaskManagerTest {
 
     @Test
     public void addTasks() {
-        Task task = new Task("fwf", "hojr", 2, Status.NEW);
+        Task task = new Task(2, "fwf", "hojr", Status.NEW);
         inMemoryTaskManager.addTask(task);
         final int taskId = task.getId();
         final Task savedTask = inMemoryTaskManager.getTask(taskId);
@@ -21,12 +27,12 @@ class InMemoryTaskManagerTest {
 
         assertNotNull(tasks, "Задачи не возвращаются.");
         assertEquals(1, tasks.size(), "Неверное количество задач.");
-        assertEquals(task, tasks.get(0), "Задачи не совпадают.");
+        assertEquals(task, tasks.getFirst(), "Задачи не совпадают.");
     }
 
     @Test
     public void addEpic() {
-        Epic epic = new Epic("gef", "gwege", 67);
+        Epic epic = new Epic(67, "gef", "gwege");
         inMemoryTaskManager.addEpic(epic);
         final int epicId = epic.getId();
         final Epic savedEpic = inMemoryTaskManager.getEpic(epicId);
@@ -37,13 +43,13 @@ class InMemoryTaskManagerTest {
 
         assertNotNull(epics, "Задачи не возвращаются.");
         assertEquals(1, epics.size(), "Неверное количество задач.");
-        assertEquals(epic, epics.get(0), "Задачи не совпадают.");
+        assertEquals(epic, epics.getFirst(), "Задачи не совпадают.");
     }
 
     @Test
     public void addSubtask() {
-        Epic epic = new Epic("fwq", "gewg", 124);
-        Subtask subtask = new Subtask("rwq", "ge", 12, Status.NEW, 1);
+        Epic epic = new Epic(124, "fwq", "gewg");
+        Subtask subtask = new Subtask(12,"rwq", "ge", Status.NEW, 1);
         inMemoryTaskManager.addEpic(epic);
         inMemoryTaskManager.addSubTask(subtask);
         final int subtaskId = subtask.getId();
@@ -55,6 +61,6 @@ class InMemoryTaskManagerTest {
 
         assertNotNull(subtasks, "Задачи не возвращаются.");
         assertEquals(1, subtasks.size(), "Неверное количество задач.");
-        assertEquals(subtask, subtasks.get(0), "Задачи не совпадают.");
+        assertEquals(subtask, subtasks.getFirst(), "Задачи не совпадают.");
     }
 }

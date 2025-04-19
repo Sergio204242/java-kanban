@@ -1,4 +1,8 @@
+import manager.InMemoryTaskManager;
+import manager.TaskManager;
 import org.junit.jupiter.api.Test;
+import tasks.Status;
+import tasks.Task;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -6,15 +10,15 @@ class TaskTest {
 
     @Test
     public void compareTasks() {
-        Task task1 = new Task("fw", "fwef", 1, Status.NEW);
-        Task task2 = new Task("fd", "8yhj", 1, Status.DONE);
+        Task task1 = new Task(1, "fw", "fwef", Status.NEW);
+        Task task2 = new Task(1, "fd", "8yhj", Status.DONE);
         assertTrue(task1.equals(task2));
     }
 
     @Test
     public void checkTaskbyFields() {
         TaskManager taskManager = new InMemoryTaskManager();
-        Task task1 = new Task("fw", "fwef", 124, Status.NEW);
+        Task task1 = new Task(124, "fw", "fwef", Status.NEW);
         final int taskId = task1.getId();
         taskManager.addTask(task1);
         assertEquals(task1.getName(), taskManager.getTask(1).getName(), "name не совпадает");
