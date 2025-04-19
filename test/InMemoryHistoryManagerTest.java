@@ -10,7 +10,7 @@ class InMemoryHistoryManagerTest {
     @Test
     public void addTaskWithSavingPrevious() {
         HistoryManager historyManager = new InMemoryHistoryManager();
-        Task task = new Task("fsf", "geg", 1, Status.NEW);
+        Task task = new Task(1, "fsf", "geg", Status.NEW);
         historyManager.add(task);
         task.setStatus(Status.DONE);
         historyManager.add(task);
@@ -20,8 +20,8 @@ class InMemoryHistoryManagerTest {
     @Test
     public void testAddTask() {
         InMemoryHistoryManager historyManager = new InMemoryHistoryManager();
-        Task task = new Task("fw", "eg", 1, Status.NEW);
-        Task task1 = new Task("ge", "hro", 2, Status.NEW);
+        Task task = new Task(1, "fw", "eg", Status.NEW);
+        Task task1 = new Task(2, "ge", "hro", Status.NEW);
         historyManager.add(task);
         historyManager.add(task);
         assertEquals(1, historyManager.getHistory().size());
@@ -32,7 +32,7 @@ class InMemoryHistoryManagerTest {
     @Test
     public void testRemoveTask() {
         InMemoryHistoryManager historyManager = new InMemoryHistoryManager();
-        Task task = new Task("fw", "eg", 1, Status.NEW);
+        Task task = new Task(1, "fw", "eg", Status.NEW);
         historyManager.add(task);
         historyManager.remove(1);
         assertEquals(0, historyManager.getHistory().size());

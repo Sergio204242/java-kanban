@@ -3,15 +3,15 @@ package tasks;
 import java.util.Objects;
 
 public class Task {
+    protected int id;
     protected String name;
     protected String description;
     protected Status status;
-    protected int id;
 
-    public Task(String name, String description, int id, Status status) {
+    public Task(int id, String name, String description, Status status) {
+        this.id = id;
         this.name = name;
         this.description = description;
-        this.id = id;
         this.status = status;
     }
 
