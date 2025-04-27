@@ -1,19 +1,23 @@
+import manager.InMemoryTaskManager;
+import manager.TaskManager;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+import tasks.Epic;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class EpicTest {
     @Test
     public void compareEpics() {
-        Epic epic = new Epic("fs", "34hj", 2);
-        Epic epic1 = new Epic("joj", "0i[", 2);
-        assertTrue(epic.equals(epic1));
+        Epic epic = new Epic(1, "fs", "34hj");
+        Epic epic1 = new Epic(1, "joj", "0i[");
+        Assertions.assertEquals(epic, epic1);
     }
 
     @Test
     public void checkTaskbyFields() {
         TaskManager taskManager = new InMemoryTaskManager();
-        Epic epic = new Epic("fs", "34hj", 32);
+        Epic epic = new Epic(32, "fs", "34hj");
         final int epicId = epic.getId();
         taskManager.addEpic(epic);
         assertEquals(epic.getName(), taskManager.getEpic(1).getName(), "name не совпадает");
