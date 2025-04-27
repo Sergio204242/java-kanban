@@ -1,4 +1,4 @@
-package Exceptions;
+package exceptions;
 
 public class ManagerSaveException extends Throwable {
     private String message;
