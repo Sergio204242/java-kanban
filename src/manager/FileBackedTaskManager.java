@@ -145,13 +145,6 @@ public class FileBackedTaskManager extends InMemoryTaskManager implements TaskMa
         save();
     }
 
-    public static void check(File file) throws IOException {
-        Reader reader = new FileReader(file);
-        BufferedReader br = new BufferedReader(reader);
-        while (br.ready()) {
-            System.out.println(br.readLine());
-        }
-    }
 }
 
 
