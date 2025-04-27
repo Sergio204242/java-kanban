@@ -1,9 +1,12 @@
+import Exceptions.ManagerSaveException;
 import manager.InMemoryTaskManager;
 import manager.TaskManager;
 import org.junit.jupiter.api.Test;
 import tasks.Epic;
 import tasks.Status;
 import tasks.Subtask;
+
+import java.io.IOException;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
@@ -17,7 +20,7 @@ class SubtaskTest {
     }
 
     @Test
-    public void checkTaskbyFields() {
+    public void checkTaskbyFields() throws IOException, ManagerSaveException {
         TaskManager taskManager = new InMemoryTaskManager();
         Epic epic = new Epic(1, "fewf", "gfewge");
         taskManager.addEpic(epic);

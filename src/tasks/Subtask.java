@@ -4,6 +4,7 @@ import java.util.Objects;
 
 public class Subtask extends Task {
     private final int idOfEpic;
+    Type type = Type.SUBTASK;
 
     public Subtask(int id, String name, String description, Status status, int idOfEpic) {
         super(id, name, description, status);
@@ -16,13 +17,7 @@ public class Subtask extends Task {
 
     @Override
     public String toString() {
-        return "Tasks.Subtask{" +
-                "idOfEpic=" + getIdOfEpic() +
-                ", name='" + getName() + '\'' +
-                ", description='" + getDescription() + '\'' +
-                ", status=" + getStatus() +
-                ", id=" + getId() +
-                '}';
+        return id + "," + name + "," + description + "," + status + "," + type + "," + idOfEpic;
     }
 
     @Override
