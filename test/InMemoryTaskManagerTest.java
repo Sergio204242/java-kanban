@@ -14,7 +14,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 class InMemoryTaskManagerTest {
-    TaskManager inMemoryTaskManager = new InMemoryTaskManager();
+    private final TaskManager inMemoryTaskManager = new InMemoryTaskManager();
 
     @Test
     public void addTasks() throws IOException, ManagerSaveException {

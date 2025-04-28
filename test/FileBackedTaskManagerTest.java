@@ -11,9 +11,9 @@ import java.io.File;
 import java.io.IOException;
 
 class FileBackedTaskManagerTest {
-    File test = File.createTempFile("test", "txt");
+    private final File test = File.createTempFile("test", "txt");
 
-    FileBackedTaskManager fileBackedTaskManager = new FileBackedTaskManager(test);
+    private final FileBackedTaskManager fileBackedTaskManager = new FileBackedTaskManager(test);
 
     FileBackedTaskManagerTest() throws IOException {
     }

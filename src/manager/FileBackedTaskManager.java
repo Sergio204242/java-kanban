@@ -9,7 +9,6 @@ import java.util.ArrayList;
 
 public class FileBackedTaskManager extends InMemoryTaskManager implements TaskManager {
     private final File file;
-    private final InMemoryTaskManager inMemoryTaskManager = new InMemoryTaskManager();
 
     public FileBackedTaskManager(File file) {
         this.file = file;
@@ -144,14 +143,4 @@ public class FileBackedTaskManager extends InMemoryTaskManager implements TaskMa
         super.removeSubtaskById(id);
         save();
     }
-
-    public static void check(File file) throws IOException {
-        Reader reader = new FileReader(file);
-        BufferedReader br = new BufferedReader(reader);
-        while (br.ready()) {
-            System.out.println(br.readLine());
-        }
-    }
 }
-
-
