@@ -7,6 +7,7 @@ public class Task {
     protected String name;
     protected String description;
     protected Status status;
+    protected Type type = Type.TASK;
 
     public Task(int id, String name, String description, Status status) {
         this.id = id;
@@ -49,12 +50,7 @@ public class Task {
 
     @Override
     public String toString() {
-        return "Tasks.Task{" +
-                "name='" + name + '\'' +
-                ", description='" + description + '\'' +
-                ", status=" + status +
-                ", id=" + id +
-                '}';
+        return id + "," + name + "," + description + "," + status + "," + type;
     }
 
     @Override

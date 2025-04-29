@@ -1,8 +1,11 @@
+import exceptions.ManagerSaveException;
 import manager.InMemoryTaskManager;
 import manager.TaskManager;
 import org.junit.jupiter.api.Test;
 import tasks.Status;
 import tasks.Task;
+
+import java.io.IOException;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -16,7 +19,7 @@ class TaskTest {
     }
 
     @Test
-    public void checkTaskbyFields() {
+    public void checkTaskbyFields() throws IOException, ManagerSaveException {
         TaskManager taskManager = new InMemoryTaskManager();
         Task task1 = new Task(124, "fw", "fwef", Status.NEW);
         final int taskId = task1.getId();

@@ -1,3 +1,4 @@
+import exceptions.ManagerSaveException;
 import manager.InMemoryTaskManager;
 import manager.TaskManager;
 import org.junit.jupiter.api.Test;
@@ -6,16 +7,17 @@ import tasks.Status;
 import tasks.Subtask;
 import tasks.Task;
 
+import java.io.IOException;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 class InMemoryTaskManagerTest {
-    TaskManager inMemoryTaskManager = new InMemoryTaskManager();
+    private final TaskManager inMemoryTaskManager = new InMemoryTaskManager();
 
     @Test
-    public void addTasks() {
+    public void addTasks() throws IOException, ManagerSaveException {
         Task task = new Task(2, "fwf", "hojr", Status.NEW);
         inMemoryTaskManager.addTask(task);
         final int taskId = task.getId();
@@ -31,7 +33,7 @@ class InMemoryTaskManagerTest {
     }
 
     @Test
-    public void addEpic() {
+    public void addEpic() throws IOException, ManagerSaveException {
         Epic epic = new Epic(67, "gef", "gwege");
         inMemoryTaskManager.addEpic(epic);
         final int epicId = epic.getId();
@@ -47,7 +49,7 @@ class InMemoryTaskManagerTest {
     }
 
     @Test
-    public void addSubtask() {
+    public void addSubtask() throws IOException, ManagerSaveException {
         Epic epic = new Epic(124, "fwq", "gewg");
         Subtask subtask = new Subtask(12,"rwq", "ge", Status.NEW, 1);
         inMemoryTaskManager.addEpic(epic);
